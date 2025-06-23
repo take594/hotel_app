@@ -43,3 +43,4 @@ yarn-debug.log*
 database_yml
 vendor/bundle
 .vscode/
+/public/uploads

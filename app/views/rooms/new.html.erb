@@ -1,0 +1,36 @@
+<h2 class="display-5 text-primary">施設の新規登録</h2>
+
+<%= form_with model: @room do |f| %>
+  <%= render 'shared/error_messages', obj: @room %>
+  <div class="from-group">
+    <%= f.label :image, "施設画像" %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="from-group">
+    <%= f.label :name, "施設名" %>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="from-group">
+    <%= f.label :introduction, "施設紹介" %>
+    <%= f.text_area :introduction, class:"form-control" %>
+  </div>
+  <div class="from-group">
+    <%= f.label :rate, "料金/日" %>
+    <%= f.text_field :rate, class:"form-control" %>
+  </div>
+  <div class="from-group">
+    <%= f.label  :located, "住所" %>
+    <%= f.text_field :located, class:"form-control" %>
+  </div>
+
+
+  <div>
+    <%= f.submit "登録完了する", class:"btn btn-primary" %>
+  <div>
+  
+<% end %>
+
+<div>
+  <%= link_to "トップへ", root_path %>
+</div>
+

@@ -1,0 +1,42 @@
+<h2 class="display-5 text-primary">予約の新規登録</h2>
+
+<div>
+  <p>施設画像</p>
+  <%= image_tag @room.image.url %>
+</div>
+<div>
+  <p>施設名</p>
+  <%= @room.name %>
+</div>
+
+<%= form_with model: @reservation do |f| %>
+  <%= render 'shared/error_messages', obj: @reservation %>
+  <div class="from-group">
+    <%= f.label :checkIn, "チェックイン日" %>
+    <%= f.date_field :checkIn, class:"form-control" %>
+  </div>
+  <div class="from-group">
+    <%= f.label :checkOut, "チェックアウト日" %>
+    <%= f.date_field :checkOut, class:"form-control" %>
+  </div>
+  <div class="from-group">
+    <%= f.label  :numberOfPeople, "人数" %>
+    <%= f.number_field :numberOfPeople, class:"form-control" %>
+  </div>
+
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.hidden_field :roomImage, value: @room.image %>
+  <%= f.hidden_field :roomName, value: @room.name %>
+  <%= f.hidden_field :roomIntroduction, value: @room.introduction %>
+  <%= f.hidden_field :roomRate, value: @room.rate %>
+  
+  <div>
+    <%= f.submit "登録完了する", class:"btn btn-primary" %>
+  <div>
+  
+<% end %>
+
+<div>
+  <%= link_to "トップへ", root_path %>
+</div>
+

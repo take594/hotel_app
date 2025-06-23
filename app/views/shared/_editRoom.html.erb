@@ -1,0 +1,8 @@
+<% if current_user.present? %>
+  <% if current_user.own?(room) %>
+    <div>
+      <%= link_to "施設情報を編集する", edit_room_path(room) %>
+    </div>
+  <% end %>
+<% else %>
+<% end %>

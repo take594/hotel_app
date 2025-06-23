@@ -1,0 +1,50 @@
+body{
+  margin: 20px;
+}
+header{
+  background-color:blue;
+}
+
+.top_message{
+  color:white;
+  font-size:40px;
+  font-weight:bold;
+  position:relative;
+  top:10px;
+}
+
+.top_content{
+  display:flex;
+  justify-content:end;
+  text-align:center;
+  list-style:none;
+  margin-right:20px;
+  padding-bottom:10px;
+  gap:10px;
+  position:relative;
+  bottom:15px;
+}
+.log_in_page{
+  height:30px;
+  width:90px;
+  border-radius:10px;
+  border:1px solid white;
+  background-color:white;
+}
+.log_in_link{
+  color:black;
+  font-size:20px;
+  text-decoration:none;
+}
+.create_new_user{
+  height:30px;
+  width:90px;
+  border-radius:10px;
+  border:1px solid orange;
+  background-color: orange;
+}
+.new_user_link{
+  color:white;
+  font-size:20px;
+  text-decoration:none;
+}
