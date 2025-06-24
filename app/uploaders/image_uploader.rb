@@ -3,9 +3,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   
-  def default_url
-    "default.png"
-  end
+  #def default_url
+    #'default.png'
+  #end
 
   process resize_to_fit: [120, 120]
   

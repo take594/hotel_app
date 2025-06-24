@@ -10,9 +10,12 @@
   <div class="form-group">
     <%= f.label :image, "プロフィール画像" %>
     <%= f.file_field :image %>
-
-    <%= image_tag @user.image.thumb.url, size:'40*40' %>
-  <div>
+    <% if @user.image.present? %>
+      <%= image_tag @user.image.thumb.url, size:'40*40' %>
+    <% else %>
+      <%= image_tag 'default.png' %>
+    <% end %>
+  </div>
   <div class="form-group">
     <%= f.label :name, "名前" %>
     <%= f.text_field :name, class:"form-control" %>

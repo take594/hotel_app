@@ -23,7 +23,13 @@
             </tr>
             <tr>
               <th>施設画像</th>
-              <td><%= image_tag room.image.url %></td>
+              <td>
+                <% if room.image.present? %>
+                  <%= image_tag room.image.url %>
+                <% else %>
+                  <%= image_tag "defaultImage.png" %>
+                <% end %>
+              </td>
             </tr>
           </table>
           <div class="modal-footer">

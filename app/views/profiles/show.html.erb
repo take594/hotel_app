@@ -8,7 +8,13 @@
 <table class="table table-bordered">
   <tr>
     <th>プロフィール画像</th>
-    <td><%= image_tag current_user.image.thumb.url, size: '40*40' %></td>
+    <td>
+      <% if current_user.image.present? %>
+        <%= image_tag current_user.image.thumb.url, size: '40*40' %>
+      <% else %>
+        <%= image_tag 'default.png' %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>名前</th>
