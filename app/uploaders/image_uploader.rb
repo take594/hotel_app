@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     #'default.png'
   #end
 
-  process resize_to_fit: [120, 120]
+  process resize_to_fit: [220, 120]
   
   version :thumb do
     process resize_to_fit: [40, 40]

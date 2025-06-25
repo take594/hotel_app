@@ -1,6 +1,27 @@
 ---
 ja:
   activerecord:
+    models:
+      user: ユーザー
+      room: 施設
+      reservation: 宿泊予約
+    attributes:
+      user:
+        image: ユーザー画像 
+        name: ユーザー名
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード確認
+      room:
+        image: 施設画像
+        name: 施設名
+        introduction: 紹介文
+        rate: 料金
+        located: 所在地
+      reservation:
+        checkIn: チェックイン日
+        checkOut: チェックアウト日
+        numberOfPeople: 人数
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

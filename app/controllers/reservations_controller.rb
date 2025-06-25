@@ -10,7 +10,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.build(reservation_params)
-    if @reservation.save!
+    @room = Room.find(@reservation.room_id)
+    if @reservation.save
       flash[:notice] = "予約しました"
       redirect_to root_path
     else

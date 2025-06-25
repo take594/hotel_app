@@ -8,13 +8,13 @@ class Reservation < ApplicationRecord
   validate :checkOut_shoud_be_later_than_checkIn
 
   def checkIn_shoud_be_later_than_today
-    if checkIn<Time.now
+    if checkIn!=nil&&checkIn<Time.now
       errors.add(:checkIn, "チェックイン日は本日以降にしてください")
     end
   end
 
   def checkOut_shoud_be_later_than_checkIn
-    if checkIn>checkOut
+    if checkIn!=nil && checkOut!=nil && checkIn>checkOut
       errors.add(:checkOut, "チェックアウト日はチェックイン日以降にしてください")
     end
   end

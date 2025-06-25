@@ -1,8 +1,14 @@
 <h2 class="display-5 text-primary">予約の新規登録</h2>
 
+<%= render 'shared/error_messages', obj: @reservation %>
+
 <div>
   <p>施設画像</p>
-  <%= image_tag @room.image.url %>
+  <% if @room.image.present? %>
+    <%= image_tag @room.image.url %>
+  <% else %>
+    <%= image_tag 'defaultImage.png' %>
+  <% end %>
 </div>
 <div>
   <p>施設名</p>
@@ -10,7 +16,6 @@
 </div>
 
 <%= form_with model: @reservation do |f| %>
-  <%= render 'shared/error_messages', obj: @reservation %>
   <div class="from-group">
     <%= f.label :checkIn, "チェックイン日" %>
     <%= f.date_field :checkIn, class:"form-control" %>

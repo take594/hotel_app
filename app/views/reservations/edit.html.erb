@@ -1,10 +1,15 @@
 <h2 class="display-5 text-primary">予約情報編集</h2>
 
+<%= render 'shared/error_messages', obj: @reservation %>
+
 <%= form_with model: @reservation do |f| %>
-  <%= render 'shared/error_messages', obj: @reservation %>
     <div>
       <p>施設画像</p>
-      <%= image_tag @reservation.roomImage %>
+      <% if @reservation.roomImage.present? %>
+        <%= image_tag @reservation.roomImage.url %>
+      <% else %>
+        <%= image_tag 'defaultImage.png' %>
+      <% end %>
     </div>
     <div>
       <p>施設名</p>

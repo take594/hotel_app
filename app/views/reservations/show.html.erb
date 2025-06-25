@@ -3,7 +3,13 @@
 <table class="table table-bordered">
   <tr>
     <th>施設画像</th>
-    <td><%= image_tag @reservation.roomImage %></td>
+    <td>
+      <% if @reservation.roomImage.present? %>
+        <%= image_tag @reservation.roomImage %>
+      <% else %>
+        <%= image_tag 'default.png' %>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>施設名</th>

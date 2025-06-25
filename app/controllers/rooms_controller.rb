@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
   
   def create
     @room = current_user.rooms.build(room_params)
-    if @room.save!
+    if @room.save
       flash[:notice] = "新規施設を登録しました"
       redirect_to root_path
     else
