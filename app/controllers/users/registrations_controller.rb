@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user =  User.new(user_params1)
-    if @user.save!
+    if @user.save
       flash[:notice] = "アカウントを登録しました"
       redirect_to root_path
     else
