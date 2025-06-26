@@ -6,7 +6,7 @@
     <div>
       <p>施設画像</p>
       <% if @reservation.roomImage.present? %>
-        <%= image_tag @reservation.roomImage.url %>
+        <%= image_tag @reservation.roomImage %>
       <% else %>
         <%= image_tag 'defaultImage.png' %>
       <% end %>

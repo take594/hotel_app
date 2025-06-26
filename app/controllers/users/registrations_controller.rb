@@ -26,7 +26,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
     if @user.update(user_params2)
-      redirect_to account_path(current_user)
+      flash[:notice] = "アカウント情報を変更しました"
+      redirect_to root_path
     else
       flash[:notice] = "アカウント情報の変更に失敗しました"
       render :edit
@@ -57,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params2
-    params.require(:user).permit(:email, :password, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
