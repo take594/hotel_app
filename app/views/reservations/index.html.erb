@@ -1,0 +1,57 @@
+
+<h1>予約一覧</h1>
+
+<% if @reservations.present? %>
+  <% @reservations.each do |reservation| %>
+    <div>
+      <table class="table">
+        <tr>
+          <th>施設画像</th>
+          <td>
+            <% if reservation.roomImage.present? %>
+              <%= image_tag reservation.roomImage %>
+            <% else %>
+              <%= image_tag 'defaultImage.png' %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>施設名</th>
+          <td><%= reservation.roomName %></td>
+        </tr>
+        <tr>
+          <th>施設詳細</th>
+          <td><%= reservation.roomIntroduction %></td>
+        </tr>
+        <tr>
+          <th>合計料金</th>
+          <td><%= converting_to_jpy((reservation.roomRate.to_i)*(((reservation.checkOut - reservation.checkIn)/(24*60*60)).to_i)*(reservation.numberOfPeople.to_i)) %></td>
+        </tr>
+        <tr>
+          <th>チェックイン日</th>
+          <td><%= reservation.checkIn.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th>チェックアウト日</th>
+          <td><%= reservation.checkOut.to_s(:datetime_jp) %></td>
+        </tr>
+        <tr>
+          <th>予約確定日時</th>
+          <td><%= reservation.created_at.to_s(:datehourtime_jp) %></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <%= link_to "予約の詳細へ", reservation_path(reservation) %>
+    </div>
+  <% end %>
+
+<% else %>
+  
+<p>現在予約中の施設はありません</p>
+
+<% end %>
+
+<div>
+  <%=link_to "トップへ", root_path %>
+</div>

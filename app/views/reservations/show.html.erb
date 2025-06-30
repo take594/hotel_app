@@ -1,0 +1,47 @@
+<h2 class="display-5 text-primary">予約詳細</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>施設画像</th>
+    <td>
+      <% if @reservation.roomImage.present? %>
+        <%= image_tag @reservation.roomImage %>
+      <% else %>
+        <%= image_tag 'default.png' %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>施設名</th>
+    <td><%= @reservation.roomName %></td>
+  </tr>
+  <tr>
+    <th>チェックイン日</th>
+    <td><%= @reservation.checkIn.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>チェックアウト日</th>
+    <td><%= @reservation.checkOut.to_s(:datetime_jp)%></td>
+  </tr>
+  <tr>
+    <th>宿泊日数</th>
+    <td><%= ((@reservation.checkOut - @reservation.checkIn)/(24*60*60)).to_i  %>日</td>
+  </tr>
+  <tr>
+    <th>宿泊人数</th>
+    <td><%= @reservation.numberOfPeople %>人</td>
+  </tr>
+  <tr>
+    <th>支払金額</th>
+    <td><%= converting_to_jpy((@reservation.roomRate.to_i)*(((@reservation.checkOut - @reservation.checkIn)/(24*60*60)).to_i)*(@reservation.numberOfPeople.to_i)) %></td>
+  </tr>
+</table>
+
+<div>
+  <%= link_to "戻る", :back %>
+</div>
+
+
+<%= link_to "予約を編集する", edit_reservation_path(@reservation) %>
+<%= render "shared/destroyReservation", reservation: @reservation %>
+
